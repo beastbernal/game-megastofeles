@@ -3,12 +3,15 @@ export const obtenerGlobo = (heroina) => {
     heroina.inventario.globos = true;
 };
 export const obtenerEscudo = (heroina) => {
+    console.log("Obtuviste Linterna 🔦")
     heroina.inventario.escudo = true;
 };
 export const obtenerEspejo = (heroina) => {
+    console.log("Obtuviste Linterna 🔦")
     heroina.inventario.espejo = true;
 };
 export const obtenerEstaca = (heroina) => {
+    console.log("Obtuviste Linterna 🔦")
     heroina.inventario.estacas = true;
 };
 export const obtenerLinterna = (heroina) => {
