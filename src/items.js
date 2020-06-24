@@ -7,11 +7,11 @@ export const obtenerEscudo = (heroina) => {
     heroina.inventario.escudo = true;
 };
 export const obtenerEspejo = (heroina) => {
-    console.log("Obtuviste Linterna 🔦")
+    console.log("Obtuviste Espejo 👩")
     heroina.inventario.espejo = true;
 };
 export const obtenerEstaca = (heroina) => {
-    console.log("Obtuviste Linterna 🔦")
+    console.log("Obtuviste Estaca 🧛")
     heroina.inventario.estacas = true;
 };
 export const obtenerLinterna = (heroina) => {
