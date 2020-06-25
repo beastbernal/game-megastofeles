@@ -1,21 +1,17 @@
 import {
-    obtenerGlobo,
-    obtenerEscudo,
-    obtenerEspejo,
-    obtenerEstaca,
-    obtenerLinterna,
-    obtenerTijeras
+    obtenerObjeto
 } from './items';
 
 import {
-    lazy,
-    unitornio,
-    megastofeles,
-    zombie,
-    burlon
+    // lazy,
+    // unitornio,
+    // megastofeles,
+    // zombie,
+    // burlon,
+    mounstruo
 } from './niveles';
 
-let numeroNivel,
+let numeroNivel = 0,
     carisma,
     fuerza,
     inteligencia,
@@ -25,20 +21,21 @@ let numeroNivel,
     globos,
     linternas,
     estacas,
+    espejo,
     escudo;
 
 const abrirCofre = () => {
     console.log('Encontraste un cofre... 🎁🛍');
     const items = [
-        obtenerGlobo,
-        obtenerEscudo,
-        obtenerEspejo,
-        obtenerEstaca,
-        obtenerLinterna,
-        obtenerTijeras
+        "globos" ,
+        "escudo",
+        "espejo",
+        "estacas",
+        "linternas",
+        "tijeras",
     ];
     const item = items[Math.floor(Math.random() * items.length)];
-    const resultado = item(heroina);
+    const resultado = obtenerObjeto(heroina, item);
     if (resultado) {
         console.log(' con un ' + resultado + '!');
         //resultado(heroina)
@@ -47,7 +44,7 @@ const abrirCofre = () => {
     }
 };
 
-const niveles = [lazy, unitornio, megastofeles, zombie, burlon, abrirCofre];
+const niveles = ["lazy", "unitornio", "megastofeles", "zombie", "burlon", "abrirCofre"];
 
 let heroina = {
     vida: 100,
@@ -83,14 +80,16 @@ const verifyLifeLevel = (heroina) =>{
 }
 
 const jugarNivel = () => {
-    const nivel = niveles[Math.floor(Math.random() * niveles.length)];
+    const nombre = niveles[0];
+    // const nivel = niveles[Math.floor(Math.random() * niveles.length)];
     numeroNivel++;
     setTimeout(() => {
         console.log('Entrando al nivel ' + numeroNivel + '...');
     }, 1000);
     setTimeout(() => {
         if(verifyLifeLevel(heroina)) {
-            nivel(heroina, eliminarNivel, nivel);
+            mounstruo(nombre ,heroina, eliminarNivel, numeroNivel);
+            // nivel(heroina, eliminarNivel, nivel);
         }
     }, 2500);
     setTimeout(() => {
@@ -114,6 +113,7 @@ const jugarNivel = () => {
           globos: ${heroina.inventario.globos}
           linternas: ${heroina.inventario.linternas}
           estacas: ${heroina.inventario.estacas}
+          espejo: ${heroina.inventario.espejo}
           escudo activado? ${heroina.inventario.escudo ? 'Si.' : 'No.'}
           `);
     }, 7000);
